@@ -27,7 +27,7 @@ GPIO.setup(GPIO_ECHO1, GPIO.IN)
 거리 측정 함수
 초음파 센서로부터 거리 데이터를 얻기 위해 measure_distance() 함수를 정의했습니다. 이 함수는 초음파 신호를 보내고 반사되어 돌아오는 시간을 측정하여 거리를 계산합니다.
 
-
+# 초음파 측정 함수
 def measure_distance(trigger_pin, echo_pin):
     GPIO.output(trigger_pin, True)
     time.sleep(0.00001)
@@ -45,6 +45,9 @@ def measure_distance(trigger_pin, echo_pin):
     TimeElapsed = StopTime - StartTime
     distance = round((TimeElapsed * 34300) / 2, 2)
     return distance
+
+
+
 Trigger 핀에 짧은 펄스를 보내 초음파를 발생시키고, Echo 핀에서 신호를 받아 돌아오는 시간을 측정합니다.
 시간을 이용하여 물체와의 거리를 계산하며, 그 결과는 cm 단위로 반환됩니다.
 센서 데이터를 기반으로 Arduino로 명령 전송
